@@ -3,7 +3,7 @@ import UserModal from './../models/User.model.js';
 
 export const getProducts = async (req, res) => {
     try {
-        const response = await ProductModal.find({}).exec();
+        const response = await ProductModal.find({});
         if (response) {
             return res.status(200).json({ success: true, products: response });
         } else {
@@ -19,7 +19,7 @@ export const addProduct = async (req, res) => {
     try {
         const { name, price, image, color, type, userId } = req.body;
         if (!name || !price || !image || !color || !type || !userId) return res.status(401).json({ success: false, message: "All fields are mandtory!" });
-        const userName = await UserModal.findById({ userId }).select("name");
+        const userName = await UserModal.findById(userId).select("name");
         if (!userName) return res.status(401).json({ success: false, message: "User not found!" });
         const product = new ProductModal({
             name,
@@ -27,11 +27,12 @@ export const addProduct = async (req, res) => {
             image,
             color,
             type,
-            userName,
+            userName: userName.name,
             userId
         })
         await product.save();
-        return res.status(201).json({ success: true, products: "Product added successfully." });
+
+        return res.status(201).json({ success: true, message: "Product added successfully." });
     } catch (error) {
         return res.status(500).json({ success: false, message: error });
     }

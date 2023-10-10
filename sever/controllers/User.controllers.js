@@ -1,6 +1,7 @@
 import UserModel from "../models/User.model.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken'
+import ProductModal from '../models/Product.model.js';
 
 export const login = async (req, res) => {
     try {
@@ -31,7 +32,6 @@ export const login = async (req, res) => {
             message: "Email or Password is wrong."
         })
     } catch (error) {
-        console.log(error, "error")
         return res.status(500).json({
             success: false,
             message: error
@@ -66,7 +66,6 @@ export const getCurrentUser = async (req, res) => {
 
         const decodedData = jwt.verify(token, process.env.JWT_SECRET);
         if (!decodedData) return res.status(404).json({ success: false, message: "Token is not valid." })
-
         const userId = decodedData.userId;
         const user = await UserModel.findById(userId);
         if (user) {
@@ -83,12 +82,17 @@ export const getCurrentUser = async (req, res) => {
 export const addCart = async (req, res) => {
     try {
         const { userId, productId } = req.body;
-        if (!userId || !productId) return res.status(400).json({ success: false, message: "All fields are mandtory." })
+        if (!userId || !productId) {
+            return res.status(400).json({ success: false, message: "Both userId and productId are mandatory." });
+        }
 
         const user = await UserModel.findById(userId);
         if (!user) {
             return res.status(404).json({ success: false, message: "User not found." });
         }
+
+        const isProductInCart = user.cart.some(item => item.toString() === productId);
+
         if (!isProductInCart) {
             user.cart.push(productId);
             await user.save();
@@ -97,9 +101,34 @@ export const addCart = async (req, res) => {
             return res.status(400).json({ success: false, message: "Product is already in the cart." });
         }
     } catch (error) {
-        return res.status(500).json({ success: false, message: error })
+        return res.status(500).json({ success: false, message: error.message });
     }
-}
+};
+
+export const getCartProducts = async (req, res) => {
+    try {
+        const { userId } = req.body;
+        if (!userId) {
+            return res.status(400).json({ success: false, message: "userId is mandatory." });
+        }
+
+        const user = await UserModel.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ success: false, message: "User not found." });
+        }
+        const cartProducts = await ProductModal.find({ _id: { $in: user.cart } });
+
+        if (!cartProducts) {
+            return res.status(404).json({ success: false, message: "No products found in the user's cart." });
+        }
+
+        return res.status(200).json({ success: true, cartProducts });
+    } catch (error) {
+        return res.status(500).json({ success: false, message: error.message });
+    }
+};
+
 
 export const removeCart = async (req, res) => {
     try {

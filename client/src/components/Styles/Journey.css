@@ -1,0 +1,78 @@
+@media (min-width: 320px) {
+    .nav-links {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+        /* margin-right: 10px; */
+    }
+
+    .journey h2 {
+        top: 60px;
+        /* left: 43%; */
+        font-size: 40px;
+        margin-left: -100px;
+    }
+
+    .image img {
+        width: 548px;
+    }
+}
+
+@media (min-width: 640px) {
+    
+    .journey {
+        background-image: none;
+    }
+
+    .journey-content {
+        top: 270px;
+        scroll-behavior: auto;
+    }
+
+    .image img {
+        width: 800px;
+    }
+}
+
+@media (min-width: 768px) {
+    .nav-links {
+        display: block;
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+
+    .image img {
+        width: 1000px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .journey{
+        margin-top: 50px;
+    }
+    .journey-content {
+        top: 300px;
+        height: 1100px;
+    }
+
+    .image img {
+        width: 1200px;
+    }
+
+    .contents {
+        margin-bottom: -60px;
+        margin-top: 0px;
+    }
+
+    .contents>h4 {
+        font-size: 20px;
+        font-weight: 500;
+        margin-top: 0px;
+    }
+}
+
+@media (min-width: 1280px) {}

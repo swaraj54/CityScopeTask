@@ -1,0 +1,51 @@
+.ta-c {
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    #home {
+        width: 20%;
+        margin: auto;
+        font-size: 22px
+    }
+
+    .h-button {
+        text-align: center;
+        height: 100px;
+        width: 160px;
+        font-size: 26px;
+        cursor: pointer
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    #home {
+        width: 20%;
+        margin: auto;
+        font-size: 32px
+    }
+
+    .h-button {
+        text-align: center;
+        height: 150px;
+        width: 300px;
+        font-size: 26px;
+        cursor: pointer
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    #home {
+        width: 20%;
+        margin: auto;
+        font-size: 42px
+    }
+
+    .h-button {
+        text-align: center;
+        height: 150px;
+        width: 300px;
+        font-size: 26px;
+        cursor: pointer
+    }
+}

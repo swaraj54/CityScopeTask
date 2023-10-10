@@ -1,0 +1,151 @@
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.hover-links {
+  color: var(--primary-text-color);
+  transition: 0.3s ease-out;
+}
+
+.hover-links:hover {
+  color: var(--accent-color);
+}
+
+.primary-button {
+  background-color: var(--accent-color);
+  border-radius: 6px;
+  font-weight: 600;
+  color: white !important;
+  box-shadow: 0 0 2px var(--secondary-text-color);
+  padding: 12px 24px;
+  transition: 0.2s ease-out;
+}
+
+.primary-button:hover {
+  background-color: var(--accent-color-dark);
+}
+
+.secondary-button {
+  border: 0.1px solid var(--primary-text-color);
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 700;
+  color: var(--primary-text-color) !important;
+  transition: 0.2s ease-out;
+}
+
+.secondary-button:hover {
+  color: var(--accent-color-dark) !important;
+}
+
+.container {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: var(--padding-inline-section);
+  overflow: hidden;
+}
+
+.main-nav {
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.company-logo img {
+  width: 200px;
+}
+
+.nav-links ul {
+  justify-content: end;
+  gap: 30px;
+}
+
+nav-links {
+  flex-basis: 737px;
+}
+
+.contact {
+  height: 520px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.card {
+  height: 360px;
+  width: 350px;
+  padding: 25px;
+  background-color: #ffffff;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+}
+
+.cardAlign {
+  width: 50%;
+  margin: auto;
+  /* border: 5px solid blue; */
+}
+
+.cardAlign>p {
+  font-size: 22px;
+}
+
+.content {
+  margin-top: 25px;
+  font-size: 20px;
+}
+
+.content>p:first-child {
+  margin-bottom: 0px;
+  font-size: 20px;
+}
+
+.content>p {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+.touch {
+  justify-content: center;
+  align-items: center;
+  margin-top: -40px;
+}
+
+.icons {
+  margin-top: 12px;
+  justify-content: space-between;
+}
+
+.journey {
+  /* border: 2px solid blue; */
+  height: 1000px;
+
+  position: relative;
+}
+
+.image img {
+  max-width: 1200px;
+}
+
+.journey-content {
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 350px;
+  background-color: #4a4a4b;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.journey h2 {
+  color: white;
+  position: absolute;
+  top: 107px;
+  left: 43%;
+}
+
+.contents {
+  color: white;
+  margin-top: 25px;
+  padding: 18px;
+}
