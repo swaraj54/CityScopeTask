@@ -40,7 +40,7 @@ const Login = () => {
       router("/")
       toast("You are already Logged in.")
     }
-  }, [state, router])
+  }, [state])
 
   return (
     <div>
