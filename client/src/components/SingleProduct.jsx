@@ -58,7 +58,7 @@ const SingleProduct = () => {
         } else {
             setCartProducts([]);
         }
-    }, [id, state])
+    }, [id, state, , GetCartProducts, GetProducts])
     return (
         <div id="store">
             <div id="store-main">

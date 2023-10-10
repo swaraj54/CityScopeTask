@@ -7,7 +7,7 @@ const NotFound = () => {
         setTimeout(() => {
             router('/')
         }, 3000)
-    }, [])
+    }, [router])
     return (
         <div>Opps, Page Not Found, Redirecting you to home page in 3 sec.</div>
     )

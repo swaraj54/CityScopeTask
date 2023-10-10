@@ -30,7 +30,7 @@ const Navbar = () => {
         return () => {
             document.removeEventListener('click', closeSidebarOnOutsideClick);
         };
-    }, [isOpen])
+    }, [isOpen, closeSidebarOnOutsideClick])
 
     return (
         <>

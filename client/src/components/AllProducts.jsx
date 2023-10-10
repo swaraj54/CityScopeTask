@@ -71,7 +71,7 @@ const AllProducts = () => {
         );
     };
     const handleColorChange = (event) => {
-        const { id, style } = event.target;
+        const {  style } = event.target;
         const color = style.backgroundColor;
         setSelectedColors((prevSelectedColors) =>
             prevSelectedColors.includes(color)
@@ -107,7 +107,7 @@ const AllProducts = () => {
             setCartProducts([]);
         }
         GetProducts();
-    }, [state])
+    }, [state,GetCartProducts])
     return (
         <>
             <div className="respFiltCart">

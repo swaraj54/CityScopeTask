@@ -39,7 +39,7 @@ const Register = () => {
             router("/")
             toast("You are already Logged in.")
         }
-    }, [state])
+    }, [state, router])
 
     return (
         <div>

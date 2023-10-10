@@ -40,7 +40,7 @@ const Login = () => {
       router("/")
       toast("You are already Logged in.")
     }
-  }, [state])
+  }, [state, router])
 
   return (
     <div>
@@ -55,7 +55,7 @@ const Login = () => {
           <input type='submit' value="Login" /><br />
         </fieldset>
       </form>
-      <button style={{ width: "80px", marginLeft: '630px', marginTop:"20px" }} onClick={() => router('/register')}>Register ?</button>
+      <button style={{ width: "80px", marginLeft: '630px', marginTop: "20px" }} onClick={() => router('/register')}>Register ?</button>
     </div>
   )
 }
